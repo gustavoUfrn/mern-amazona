@@ -1,7 +1,6 @@
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProductScreen from './screens/ProductScreen';
-//import { LinkContainer } from 'react-router-bootstrap';
-import { Container, Navbar } from 'react-bootstrap';
+import { Container, Navbar, NavLink } from 'react-bootstrap';
 import Homepage from './screens/Homepage';
 
 function App() {
@@ -11,14 +10,14 @@ function App() {
         <header>
           <Navbar bg="dark" variant="dark">
             <Container>
-              <NavLink to="/">
+              <NavLink href="/">
                 <Navbar.Brand>amazona</Navbar.Brand>
               </NavLink>
             </Container>
           </Navbar>
         </header>
         <main>
-          <Container>
+          <Container className="mt-3">
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/" element={<Homepage />} />
