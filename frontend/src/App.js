@@ -1,9 +1,10 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import ProductScreen from './screens/ProductScreen';
 import { Badge, Container, Nav, Navbar, NavLink } from 'react-bootstrap';
 import Homepage from './screens/Homepage';
 import { useContext } from 'react';
 import { Store } from './Store';
+import CartScreen from './screens/CartScreen';
 
 function App() {
   const { state } = useContext(Store);
@@ -14,9 +15,9 @@ function App() {
         <header>
           <Navbar bg="dark" variant="dark">
             <Container>
-              <NavLink href="/">
+              <Link to="/" className="brand-link">
                 <Navbar.Brand>amazona</Navbar.Brand>
-              </NavLink>
+              </Link>
               <Nav className="me-auto">
                 <NavLink to="/cart" className="nav-link">
                   Cart
@@ -34,6 +35,7 @@ function App() {
           <Container className="mt-3">
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="/cart" element={<CartScreen />} />
               <Route path="/" element={<Homepage />} />
             </Routes>
           </Container>

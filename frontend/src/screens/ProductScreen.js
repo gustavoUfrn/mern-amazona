@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useContext, useEffect, useReducer } from 'react';
 import { Badge, Button, Card, Col, ListGroup, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Rating from '../components/Rating';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
@@ -23,6 +23,7 @@ function reduce(state, action) {
 }
 
 export default function ProductScreen() {
+  const navigate = useNavigate();
   const param = useParams();
   const { slug } = param;
 
@@ -62,6 +63,8 @@ export default function ProductScreen() {
       type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },
     });
+
+    navigate('/cart');
   };
 
   return loading ? (

@@ -47,3 +47,11 @@ main {
 .img-large {
   max-width: 100%;
 }
+
+.thumbnail {
+  height: 80px;
+}
+
+.brand-link {
+  text-decoration: none;
+}
